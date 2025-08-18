@@ -9,7 +9,29 @@
 </head>
 <body>
 
-<h1>Test !</h1>
+    <h1>Test !</h1>
+
+    {# Création de variable + affichage #}
+    {% set name = "Sylvain" %}
+    <h2>{{ name }}</h2>
+
+    {# utilisation de tableau #}
+    {% set colors = ["blue", "red", "pink", "purple", "yellow"] %}
+
+    {% for color in colors %}
+        <div style="background-color: {{ color }}">{{ color }}</div>
+    {% endfor %}
+
+    {# utilisation d'objet #}
+    {% set serie = {
+        name : "Breaking Bad",
+        genre : "Drama",
+        year : 2012
+    } %}
+
+    <h3>Nom de la série : {{ serie.name }}</h3>
+    <h3>Genre : {{ serie.genre }}</h3>
+    <h3>Année : {{ serie.year }}</h3>
 
 </body>
 </html>
