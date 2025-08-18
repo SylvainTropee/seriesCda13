@@ -1,25 +1,27 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
+{% extends 'base.html.twig' %}
 
+{% block body %}
     <h1>Test !</h1>
 
     {# Création de variable + affichage #}
     {% set name = "Sylvain" %}
-    <h2>{{ name }}</h2>
+    <h2>{{ name | upper }}</h2>
+    <h2>{{ name | length }}</h2>
 
     {# utilisation de tableau #}
     {% set colors = ["blue", "red", "pink", "purple", "yellow"] %}
 
+    <p>{{ colors | join(" - ") }}</p>
+
     {% for color in colors %}
-        <div style="background-color: {{ color }}">{{ color }}</div>
+        {% if loop.first %}
+            <p>Première couleur</p>
+        {% else %}
+            <p>Autre couleur</p>
+        {% endif %}
+        <div style="background-color: {{ color }}">{{ color }} / Index :{{ loop.index0 }}</div>
+    {% else %}
+        <p>Pas de couleurs !</p>
     {% endfor %}
 
     {# utilisation d'objet #}
@@ -33,5 +35,7 @@
     <h3>Genre : {{ serie.genre }}</h3>
     <h3>Année : {{ serie.year }}</h3>
 
-</body>
-</html>
+    <p>{{ "-6 month" | date("Y-m-d") }}</p>
+    <p>{{ "now" | date("Y-m-d") }}</p>
+
+{% endblock %}
