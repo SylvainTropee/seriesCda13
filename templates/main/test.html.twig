@@ -40,6 +40,8 @@
 
 
     <p>Username = {{ username }}</p>
+    <p>{{ username | raw }}</p>
+    <p>{{ username | striptags }}</p>
     <p>Série = {{ serieTV.title }}</p>
     <p>{{ serieTV.description }}</p>
     <p>{{ date | date("Y-m-d H:i:s") }}</p>
