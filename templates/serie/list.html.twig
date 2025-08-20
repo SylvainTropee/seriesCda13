@@ -1,13 +1,18 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+
     <h1>List of TV Shows</h1>
-    {% if currentPage > 1 %}
-        <a href="{{ path('tv_show_list', {'page': currentPage - 1}) }}">Previous Page</a>
-    {% endif %}
-    {% if currentPage < maxPage %}
-        <a href="{{ path('tv_show_list', {'page': currentPage + 1}) }}">Next Page</a>
-    {% endif %}
+    <div class="flex_between flex_div">
+        {% if currentPage > 1 %}
+            <a href="{{ path('tv_show_list', {'page': currentPage - 1}) }}">Previous Page</a>
+        {% else %}
+            <div></div>
+        {% endif %}
+        {% if currentPage < maxPage %}
+            <a href="{{ path('tv_show_list', {'page': currentPage + 1}) }}">Next Page</a>
+        {% endif %}
+    </div>
     <section class="series-list">
         {% for serie in series %}
 
