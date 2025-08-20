@@ -50,10 +50,14 @@ final class SerieController extends AbstractController
 
         dump($serie);
 
-        $serie->setName("K2000");
+        $serie->setName("K3000");
         $entityManager->persist($serie);
         $entityManager->flush();
         dump($serie);
+
+//        $entityManager->remove($serie);
+//        $entityManager->flush();
+
 
         //TODO créer une nouvelle série
         return $this->render('serie/add.html.twig');
