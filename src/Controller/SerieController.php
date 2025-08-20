@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Serie;
+use App\Repository\SerieRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -12,10 +13,18 @@ use Symfony\Component\Routing\Attribute\Route;
 final class SerieController extends AbstractController
 {
     #[Route('', name: 'list')]
-    public function list(): Response
+    public function list(SerieRepository $serieRepository): Response
     {
+        //récupére tout
+        $series = $serieRepository->findAll();
+
+        //récupère les 50 series les mieux votées
+        //$series = $serieRepository->findBy([], ["popularity" => "DESC"], 50);
+        dump($series);
         //TODO afficher la liste des séries
-        return $this->render('serie/list.html.twig');
+        return $this->render('serie/list.html.twig', [
+            "series" => $series
+        ]);
     }
 
     #[Route('/{id}', name: 'detail', requirements: ['id' => '\d+'])]
