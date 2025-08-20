@@ -5,12 +5,12 @@
     <h1>List of TV Shows</h1>
     <div class="flex_between flex_div">
         {% if currentPage > 1 %}
-            <a href="{{ path('tv_show_list', {'page': currentPage - 1}) }}">Previous Page</a>
+            <a class="link_button" href="{{ path('tv_show_list', {'page': currentPage - 1}) }}">Previous Page</a>
         {% else %}
             <div></div>
         {% endif %}
         {% if currentPage < maxPage %}
-            <a href="{{ path('tv_show_list', {'page': currentPage + 1}) }}">Next Page</a>
+            <a class="link_button" href="{{ path('tv_show_list', {'page': currentPage + 1}) }}">Next Page</a>
         {% endif %}
     </div>
     <section class="series-list">
