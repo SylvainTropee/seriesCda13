@@ -6,5 +6,39 @@
 
 {% block body %}
     <h1>Detail of a serie</h1>
+
+    <div class="serie-details">
+        <div>
+            <img src="{{ asset('img/posters/series/' ~ serie.poster) }}" alt="{{ serie.name }}">
+        </div>
+        <div class="serie-detail-infos">
+            <h2>{{ serie.name }}</h2>
+            <p>User ratings : {{ serie.vote }}</p>
+            <p>Categorized in : {{ serie.genres }}</p>
+            <p>Status : {{ serie.status }}</p>
+            <p>Aired from {{ serie.firstAirDate | date("Y-m-d") }} to {{ serie.lastAirDate | date("Y-m-d") }}</p>
+            <p>{{ serie.overview | nl2br }}</p>
+        </div>
+    </div>
 {% endblock %}
+
+
+{% block extraStyle %}
+    <style>
+        body {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5)),
+            url("{{ asset('img/backdrops/' ~ serie.backdrop) }}");
+        }
+    </style>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
 

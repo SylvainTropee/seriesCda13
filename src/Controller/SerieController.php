@@ -28,12 +28,18 @@ final class SerieController extends AbstractController
     }
 
     #[Route('/{id}', name: 'detail', requirements: ['id' => '\d+'])]
-    public function detail(int $id): Response
+    public function detail(int $id, SerieRepository $serieRepository): Response
     {
-        dump($id);
+        $serie = $serieRepository->find($id);
+
+        if(!$serie){
+            throw $this->createNotFoundException("Oops ! Serie not found !");
+        }
 
         //TODO afficher le détail d'une série
-        return $this->render('serie/detail.html.twig');
+        return $this->render('serie/detail.html.twig', [
+            'serie' => $serie
+        ]);
     }
 
     #[Route('/add', name: 'add')]
