@@ -25,9 +25,9 @@ class SerieType extends AbstractType
                 'expanded' => false,
                 'multiple' => false,
                 'choices' => [
-                    'RETURNING' => 'returning',
-                    'ENDED' => 'ended',
-                    'CANCELED' => 'canceled',
+                    'Returning' => 'returning',
+                    'Ended' => 'ended',
+                    'Canceled' => 'canceled',
                 ]
             ])
             ->add('vote', IntegerType::class, [
@@ -39,12 +39,12 @@ class SerieType extends AbstractType
             ])
             ->add('popularity')
             ->add('genres', ChoiceType::class, [
-                'multiple' => true,
+                'expanded' => true,
                 'choices' => [
-                    'DRAMA' => 'drama',
+                    'Drama' => 'drama',
                     'SF' => 'sf',
-                    'COMEDY' => 'comedy',
-                    'HORROR' => 'horror'
+                    'Comedy' => 'comedy',
+                    'Horror' => 'horror'
                 ]
             ])
             ->add('firstAirDate', DateType::class, [
@@ -62,7 +62,7 @@ class SerieType extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Serie::class,
+            'data_class' => Serie::class
         ]);
     }
 }

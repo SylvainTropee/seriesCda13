@@ -122,6 +122,10 @@ textarea{
     height: 100px;
 }
 
+.form-error, .form-label{
+    color: red;
+}
+
 /*************************** Module 6 Flash *******************************/
 
 .flash {
