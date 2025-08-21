@@ -65,7 +65,7 @@ final class SerieController extends AbstractController
 
         $serieForm->handleRequest($request);
 
-        if($serieForm->isSubmitted()){
+        if($serieForm->isSubmitted() && $serieForm->isValid()){
             //$serie->setDateCreated(new \DateTime());
             //enregistrement des données
             $entityManager->persist($serie);

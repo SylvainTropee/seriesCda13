@@ -122,7 +122,7 @@ textarea{
     height: 100px;
 }
 
-.form-error, .form-label{
+.form-error{
     color: red;
 }
 
