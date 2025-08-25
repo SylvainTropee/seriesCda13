@@ -45,7 +45,8 @@ class SerieType extends AbstractType
                     'SF' => 'sf',
                     'Comedy' => 'comedy',
                     'Horror' => 'horror'
-                ]
+                ],
+               
             ])
             ->add('firstAirDate', DateType::class, [
                 'widget' => 'single_text'
