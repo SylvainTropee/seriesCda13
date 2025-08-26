@@ -19,9 +19,12 @@
             <p>Status : {{ serie.status }}</p>
             <p>Aired from {{ serie.firstAirDate | date("Y-m-d") }} to {{ serie.lastAirDate | date("Y-m-d") }}</p>
             <p>{{ serie.overview | nl2br }}</p>
-            <a class="link_button" href="{{ path('season_add_with_serie_id', {'id': serie.id }) }}">Add a season</a>
-            <a onclick="return confirm('Voulez-vous supprimer cette série ? ({{ serie.name }})')" class="link_button"
-               href="{{ path('tv_show_delete', {'id': serie.id }) }}">Delete</a>
+            {% if app.user %}
+                <a class="link_button" href="{{ path('season_add_with_serie_id', {'id': serie.id }) }}">Add a season</a>
+                <a onclick="return confirm('Voulez-vous supprimer cette série ? ({{ serie.name }})')"
+                   class="link_button"
+                   href="{{ path('tv_show_delete', {'id': serie.id }) }}">Delete</a>
+            {% endif %}
         </div>
     </div>
     <div class="seasons">
@@ -32,9 +35,11 @@
                      alt="{{ serie.name }} #{{ season.number }}">
 
                 <div>
-                    <p>
-                        <a class="link_button" href="{{ path('season_update', {'id': season.id}) }}">Update</a>
-                    </p>
+                    {% if app.user %}
+                        <p>
+                            <a class="link_button" href="{{ path('season_update', {'id': season.id}) }}">Update</a>
+                        </p>
+                    {% endif %}
                     <h4>Season #{{ season.number }}</h4>
                     <div>{{ season.overview | nl2br }}</div>
 
