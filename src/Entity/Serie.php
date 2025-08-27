@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Attribute\Groups;
 use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: SerieRepository::class)]
@@ -18,6 +19,7 @@ class Serie
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Groups('getSerie')]
     private ?int $id = null;
 
     #[Assert\NotBlank(message: "Please provide a name for the TV show !")]
@@ -28,13 +30,16 @@ class Serie
         maxMessage: "Maximum {{ limit }} characters, please !"
     )]
     #[ORM\Column(length: 255)]
+    #[Groups('getSerie')]
     private ?string $name = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
+    #[Groups('getSerie')]
     private ?string $overview = null;
 
     #[Assert\Choice(choices: ['returning', 'canceled', 'ended'], message: "Value not correct !")]
     #[ORM\Column(length: 50)]
+    #[Groups('getSerie')]
     private ?string $status = null;
 
     #[Assert\Range(
@@ -49,6 +54,7 @@ class Serie
     private ?string $popularity = null;
 
     #[ORM\Column(length: 255)]
+    #[Groups('getSerie')]
     private ?string $genres = null;
 
     #[Assert\LessThan(propertyPath: "lastAirDate")]
@@ -78,6 +84,7 @@ class Serie
      * @var Collection<int, Season>
      */
     #[ORM\OneToMany(targetEntity: Season::class, mappedBy: 'serie', cascade: ['remove'])]
+    #[Groups('getSerie')]
     private Collection $seasons;
 
     public function __construct()
