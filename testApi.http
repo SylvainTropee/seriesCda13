@@ -1,4 +1,20 @@
 ### GET request to example server
-GET https://uselessfacts.jsph.pl/api/v2/facts/random
+POST http://localhost:8080/series/public/api/serie
+Content-Type: application/json
+
+{
+  "name": "Cristelle",
+  "overview": "ça coule de source",
+  "status": "canceled",
+  "vote": "8",
+  "popularity": "150",
+  "genres": "Drama",
+  "firstAirDate": "2023-08-27",
+  "lastAirDate": "2025-08-27",
+  "backdrop": "backdrop.png",
+  "poster": "poster.png",
+  "tmdbId" : 123456
+}
+
 ###
 
