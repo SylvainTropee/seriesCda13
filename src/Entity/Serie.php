@@ -263,6 +263,7 @@ class Serie
     {
         $this->setDateCreated(new \DateTime());
         $this->setDateModified(new \DateTime());
+        $this->setNbLike(0);
     }
 
     #[ORM\PreUpdate]
