@@ -28,6 +28,7 @@ class AppFixtures extends Fixture// implements DependentFixtureInterface
                 ->setDateCreated(new \DateTime())
                 ->setGenres($faker->randomElement(["Western", "SF", "Drama", "Comedy"]))
                 ->setName($faker->realText(10))
+                ->setNbLike($faker->numberBetween(0, 500))
                 ->setFirstAirDate($faker->dateTimeBetween("-6 year"));
             $serie
                 ->setLastAirDate($faker->dateTimeBetween($serie->getFirstAirDate()))
