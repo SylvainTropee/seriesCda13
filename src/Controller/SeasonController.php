@@ -35,8 +35,6 @@ final class SeasonController extends AbstractController
         $seasonForm = $this->createForm(SeasonType::class, $season);
         $seasonForm->handleRequest($request);
 
-        dump($season);
-
         if ($seasonForm->isSubmitted() && $seasonForm->isValid()) {
 
             $season->setDateCreated(new \DateTime());
@@ -67,8 +65,6 @@ final class SeasonController extends AbstractController
         }
         $seasonForm = $this->createForm(SeasonType::class, $season);
         $seasonForm->handleRequest($request);
-
-        dump($season);
 
         if ($seasonForm->isSubmitted() && $seasonForm->isValid()) {
 

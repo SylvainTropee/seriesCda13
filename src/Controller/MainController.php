@@ -31,9 +31,9 @@ final class MainController extends AbstractController
 
 
         $fact = file_get_contents("https://uselessfacts.jsph.pl/api/v2/facts/random");
-        dump(json_decode($fact));
-        dump(json_decode($fact, true));
-        //dump($serializer->deserialize($fact, null, 'json'));
+//        dump(json_decode($fact));
+//        dump(json_decode($fact, true));
+//        //dump($serializer->deserialize($fact, null, 'json'));
 
         return $this->render("main/test.html.twig", [
             "username" => $user,
